@@ -23,7 +23,8 @@ const getPosts = async () => {
 export const getStaticProps = async ({ params }) => {
   const posts = await getPosts();
   return {
-    props: { posts }
+    props: { posts },
+    revalidate: 10 // at most 1 request to the ghost CMS in the backend
   };
 };
 
